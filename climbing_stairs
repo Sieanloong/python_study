@@ -1,0 +1,23 @@
+#https://leetcode.com/problems/climbing-stairs/
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        
+        cache = {}        
+        def minor_step(st: int):
+                if st in cache:
+                    return cache[st]
+                
+                if st < 0 or st > 45:
+                    return 0
+                elif st == 1 :
+                    result = 1
+                elif st == 2:
+                    result = 2
+                else: 
+                    result = minor_step(st-1) + minor_step(st-2)
+                if st >=1 and st <= 45:
+                    cache[st] =result
+                    
+                return result
+        
+        return minor_step(n)
