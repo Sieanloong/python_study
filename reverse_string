@@ -1,0 +1,12 @@
+class Solution:
+    def reverseString(self,s):        
+        Solution.printChar(0,s)
+
+    @staticmethod
+    def printChar(index,s):
+        if index>=len(s)-index-1:
+            return
+        Solution.printChar(index+1,s)
+        swt=s[index]
+        s[index]=s[len(s)-index-1]
+        s[len(s)-index-1]=swt
