@@ -1,0 +1,19 @@
+class TreeNode:
+    def __init__(self, data=0, left=None, right=None):
+        self.val = data
+        self.left = left
+        self.right = right
+
+
+#now to search the binary tree node
+class Solution:
+    def searchBST(self, node:TreeNode, data:int) -> TreeNode:
+        if node is None:
+            return None
+        if node.val == data:
+            return  node
+        if node.val > data:
+            return self.searchBST(node.left,  data)
+        else:
+            return self.searchBST(node.right,  data)    
+        
